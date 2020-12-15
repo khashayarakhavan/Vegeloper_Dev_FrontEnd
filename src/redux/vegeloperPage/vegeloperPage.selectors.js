@@ -6,3 +6,7 @@ export const selectMenuOpen = createSelector(
   [selectVegeloper],
   (pageState) => pageState.menuOpen
 );
+export const selectPopUpOpen = createSelector(
+  [selectVegeloper],
+  (pageState) => pageState.popUpOpen
+);

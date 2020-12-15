@@ -60,6 +60,9 @@ export const HeroHeaderLeft = styled.div`
 
 
 export const HeroHeaderRight = styled.div`
+  ${'' /* background: ${({popUpOpen}) => popUpOpen ? "red" : "blue"} !important; */}
+  ${'' /* transition: background 1s; */}
+  ${'' /* background: blue ; */}
   grid-column: center-start / center-end;
   grid-row: 4 / span 1;
   height: 50vh;

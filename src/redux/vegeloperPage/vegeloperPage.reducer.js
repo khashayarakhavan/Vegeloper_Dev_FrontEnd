@@ -3,6 +3,7 @@ import VegeloperPageActionTypes from "./vegeloperPage.types";
 
 const INITIAL_STATE = {
   menuOpen: false,
+  popUpOpen: false,
   error: null,
   darkMode: false,
 };
@@ -14,6 +15,12 @@ const VegeloperPageReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         menuOpen: !state.menuOpen,
+      };
+    case VegeloperPageActionTypes.TOGGLE_POP_UP:
+      console.log("Hello from POP UP :D");
+      return {
+        ...state,
+        popUpOpen: !state.popUpOpen,
       };
     case VegeloperPageActionTypes.TOGGLE_DARK_MODE:
       console.log("Hello from DARK MODE :D");

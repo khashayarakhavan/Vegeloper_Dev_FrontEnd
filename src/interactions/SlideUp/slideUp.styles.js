@@ -1,6 +1,8 @@
 //Libraries
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { rgba } from "polished";
+//Design
+import colors from '../../design/colors';
 
 //Code
 export const Frame = styled.div`
@@ -52,16 +54,30 @@ export const Overlay = styled.div`
   transition-duration: ${duration};
 `;
 
+export const DialogOpenStyles = css`
+  transform: translateX(-50%) translateY(-100px);
+  display: block;
+  opacity: 1;
+`;
+
 export const Dialog = styled.div`
+  display: hidden;
+  opacity: 0;
   position: absolute;
   z-index: 101;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  ${"" /* bottom: 0;
+  left: 0; */}
+  left: 50%;
+  top: 300px;
+  font-size: 12px !important;
+  width: min-content;
   height: 300px;
-  background: white;
-  transform: translateY(${(p) => (p.isOpen ? 0 : "100%")});
-  transition: transform ${duration};
+  background: ${colors.neutrals.light};
+  ${"" /* transform: translateY(${(p) => (p.isOpen ? 0 : "100%")}); */}
+
+  transform: translateX(-50%)  translateY(0px);
+  ${(p) => p.isOpen && DialogOpenStyles};
+  transition: all ${duration};
 `;
 
 export const DialogContent = styled.div`

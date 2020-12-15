@@ -18,8 +18,6 @@ import {
 } from "./slideUp.styles";
 
 
-
-
 //Code
 const SlideUpDialog = () => {
   const [isOpen, setOpen] = useState(false);

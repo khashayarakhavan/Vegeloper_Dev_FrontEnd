@@ -56,23 +56,24 @@ import {
 
 
 //State Selector
-// import { selectCurrentUser } from "./redux/user/user.selectors";
-import { selectMenuOpen } from "../../../redux/vegeloperPage/vegeloperPage.selectors";
+import {
+  selectMenuOpen,
+  selectPopUpOpen,
+} from "../../../redux/vegeloperPage/vegeloperPage.selectors";
 //Actions
-// import { checkUserSession } from "./redux/user/user.actions";
-import { toggleMenuOpen } from "../../../redux/vegeloperPage/vegeloperPage.actions";
+import {
+  toggleMenuOpen,
+  togglePopUp,
+} from "../../../redux/vegeloperPage/vegeloperPage.actions";
+
 // import { toggleMenuOpen } from "../../../redux";
 
-export const HeroHeaderLeftContainer = (props) => {
-  const Action_ToggleMenuOpen = props.toggleMenuOpen;
-  const open = props.open;
-
-
+export const HeroHeaderLeftContainer = ({ toggleMenuOpen, menuOpen, popUpOpen, togglePopUp }) => {
+  // const Action_ToggleMenuOpen = props.toggleMenuOpen;
+  // const open = props.open;
 
   return (
-    <HeroHeaderLeft open={open}>
-
-
+    <HeroHeaderLeft >
       <Heading>
         <p className="hi">
           Hi<Accent_fireOrange>.</Accent_fireOrange>
@@ -89,27 +90,28 @@ export const HeroHeaderLeftContainer = (props) => {
         <p style={{ display: "inline" }}>
           a web <span style={{ fontWeight: 400 }}>developer</span>
         </p>
-
       </TEXT>
 
-      <Button open={open} onClick={Action_ToggleMenuOpen}>
+      <Button onClick={togglePopUp}>
         <p>Pleased to meet you</p> <SvgIcon />
         {/* <br /> */}
         <span>tea or coffee ? </span>
         <BackgroundFigure></BackgroundFigure>
       </Button>
-
     </HeroHeaderLeft>
   );
 };
 
 
 
-export const HeroHeaderRightContainer = (props) => {
-  let robotAnimation = (<Lottie options={AnimationCreateRobot} height={`100%`}/>);
+export const HeroHeaderRightContainer = ({ popUpOpen }) => {
+  let robotAnimation = (
+    <Lottie options={AnimationCreateRobot} height={`100%`} />
+  );
+
 
   return (
-    <HeroHeaderRight>
+    <HeroHeaderRight popUpOpen={popUpOpen}>
       <LottieContainer>{robotAnimation}</LottieContainer>
     </HeroHeaderRight>
   );
@@ -124,11 +126,13 @@ export const HeroHeaderRightContainer = (props) => {
 const mapStateToProps = createStructuredSelector({
   // currentUser: selectCurrentUser,
   menuOpen: selectMenuOpen,
+  popUpOpen: selectPopUpOpen,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   // checkUserSession: () => dispatch(checkUserSession()),
   toggleMenuOpen: () => dispatch(toggleMenuOpen()),
+  togglePopUp: () => dispatch(togglePopUp()),
 });
 
 // export default connect(mapStateToProps, mapDispatchToProps)(HeroHeaderLeftContainer);

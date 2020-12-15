@@ -12,7 +12,7 @@ import Cards from "../../components/Sections/Cards/Cards.component";
 import Skills from "../../components/Sections/skills/skills.component";
 import SectionStoriesPicture from "../../components/complex/section/stories-picture/stories-picture.component";
 import { LandingPageContainer } from "./vegeloper.styles";
-import Header from '../../components/Sections/header/header.component';
+import TopMenu from '../../components/Sections/header/header.component';
 import Heading from '../../components/Sections/Heading/heading.component';
 import ScrollHorizontal from '../../components/Sections/ScrollHorizontal/scrollHorizontal.component';
 import HeroHeader from "../../components/complex/hero-header/heroHeader.component";
@@ -35,14 +35,34 @@ import {Phone, Nav, NavButton, NavIcon, NavText, Burger, Content} from './vegelo
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 //State Selector
-// import { selectCurrentUser } from "./redux/user/user.selectors";
-import { selectMenuOpen } from "../../redux/vegeloperPage/vegeloperPage.selectors";
+import {
+  selectMenuOpen,
+  selectPopUpOpen,
+} from "../../redux/vegeloperPage/vegeloperPage.selectors";
 //Actions
 // import { checkUserSession } from "./redux/user/user.actions";
-import { toggleMenuOpen } from "../../redux/vegeloperPage/vegeloperPage.actions";
+import {
+  toggleMenuOpen,
+  togglePopUp,
+} from "../../redux/vegeloperPage/vegeloperPage.actions";
+//Styles
+import {
+  Frame,
+  Button,
+  ButtonIcon,
+  Overlay,
+  Dialog,
+  DialogContent,
+  Header,
+  Title,
+  Message,
+  CodeRow,
+  CodeInput,
+  CodeDash,
+  GradientButton,
+} from "../../interactions/SlideUp/slideUp.styles";
+const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => {
 
-const VegeloperPage = ({ menuOpen, toggleMenuOpen }) => {
-  // const [open, setOpen] = useState(false);
   return (
     <Phone>
       <Nav>
@@ -52,10 +72,38 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen }) => {
         <NavText>Home</NavText>
       </Nav>
       <Burger onClick={toggleMenuOpen} className="uil uil-bars" />
+
+      <Overlay isOpen={popUpOpen} onClick={togglePopUp} />
+      <Dialog isOpen={popUpOpen}>
+        <DialogContent>
+          <Header>
+            <Title>Verify Account</Title>
+            <span className="material-icons" onClick={togglePopUp}>
+              close
+            </span>
+          </Header>
+          <Message>Enter the code we just sent you below.</Message>
+          <CodeRow>
+            <CodeInput placeholder="0" />
+            <CodeDash>-</CodeDash>
+            <CodeInput placeholder="0" />
+            <CodeDash>-</CodeDash>
+            <CodeInput placeholder="0" />
+            <CodeDash>-</CodeDash>
+            <CodeInput placeholder="0" />
+            <CodeDash>-</CodeDash>
+            <CodeInput placeholder="0" />
+            <CodeDash>-</CodeDash>
+            <CodeInput placeholder="0" />
+          </CodeRow>
+          <GradientButton onClick={togglePopUp}>Submit</GradientButton>
+        </DialogContent>
+      </Dialog>
+
       <Content open={menuOpen}>
-        <VegeloperContainer open={menuOpen}>
-          <Header />
-          <HeroHeader.LeftContainer open={menuOpen} />
+        <VegeloperContainer>
+          <TopMenu />
+          <HeroHeader.LeftContainer  />
           <HeroHeader.RightContainer />
           <ScrollDownCTA />
           <Heading />
@@ -75,11 +123,13 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen }) => {
 const mapStateToProps = createStructuredSelector({
   // currentUser: selectCurrentUser,
   menuOpen: selectMenuOpen,
+  popUpOpen: selectPopUpOpen,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   // checkUserSession: () => dispatch(checkUserSession()),
   toggleMenuOpen: () => dispatch(toggleMenuOpen()),
+  togglePopUp: () => dispatch(togglePopUp()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VegeloperPage);
