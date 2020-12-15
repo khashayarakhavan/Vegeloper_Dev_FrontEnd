@@ -8,19 +8,25 @@ import shadows from '../../design/shadows.styles';
 import {respond} from '../../design/responsive';
 
 const openStyles = css`
-  transform: translateX(100px) scale(0.95);
+  ${'' /* transform: translateX(100px) scale(0.95); */}
   border-radius: 10vw;
 `;
 
 //Code
+// const openStyles = css`
+//   border-radius: 10vw;
+//   ${"" /* border-radius: 10vw; */}
+// `;
+
 export const VegeloperContainer = styled.div`
   width: 100%;
-  ${'' /* padding: 2rem 1.5rem; */}
-  ${'' /* border-radius: 40px; */}
+  ${"" /* padding: 2rem 1.5rem; */}
+  ${"" /* border-radius: 40px; */}
   background: #210f40;
-  ${'' /* transform: translateX(0) scale(1); */}
-  transition: all 0.45s ;
+  ${"" /* transform: translateX(0) scale(1); */}
   ${'' /* ${(p) => p.open && openStyles}; */}
+  transition: all 0.45s;
+  ${"" /* ${(p) => p.open && openStyles}; */}
   position: relative;
   display: grid;
   background-size: cover;

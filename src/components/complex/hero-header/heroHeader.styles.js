@@ -396,6 +396,7 @@ export const BackgroundFigure = styled.div`
 
 export const Button = styled.div`
   transform: scale(1.2);
+
   justify-self: flex-start;
   align-self: flex-start;
   margin-top: clamp(60px, 20vw, 20vw);
@@ -421,6 +422,9 @@ export const Button = styled.div`
 
   border: none;
   background: transparent;
+  background-color: red;
+  background-color: ${(p) => p.open && "blue"} !important;
+  border-radius: 0 !important;
   transition: all 1s;
 
   text-rendering: optimizeSpeed;

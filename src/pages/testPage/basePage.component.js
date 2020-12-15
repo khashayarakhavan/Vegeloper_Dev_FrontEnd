@@ -8,7 +8,8 @@ import {Content, Nav, Phone, Burger, NavButton, NavIcon, NavText} from './basePa
 import { rgba } from "polished";
 
 //Design
-import colors from '../../design/colors';
+import SlideUpDialog from '../../interactions/SlideUp/slideUp.component';
+
 
 
 const BasePage = () => {
@@ -24,6 +25,7 @@ const BasePage = () => {
       </Nav>
       <Content open={open}>
         <Burger onClick={() => setOpen(!open)} className="uil uil-bars" />
+        <SlideUpDialog />
       </Content>
     </Phone>
 

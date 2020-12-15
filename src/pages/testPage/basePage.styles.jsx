@@ -37,6 +37,7 @@ export const Burger = styled.button`
   position: absolute;
   top: 3rem;
   left: 3rem;
+  z-index: 1000;
   background: transparent;
   border: 0;
   font-size: 36px;

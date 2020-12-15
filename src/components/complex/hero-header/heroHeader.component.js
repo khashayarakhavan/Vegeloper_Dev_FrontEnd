@@ -53,15 +53,18 @@ import {
 
 
 export const HeroHeaderLeftContainer = (props) => {
-  const { width, height } = useViewport();
+  // const { width, height } = useViewport();
   const mobileBreak = 500;
   const tabletBreak = 1000;
-  const desktopBreak = 1300;
-  console.log("this is width: ", width);
-  console.log("this is height: ", height);
+  // const desktopBreak = 1300;
+  // console.log("this is width: ", width);
+  // console.log("this is height: ", height);
+  const open = props.open;
+
+
 
   return (
-    <HeroHeaderLeft>
+    <HeroHeaderLeft open={open}>
       {/* <SvgHeart
         fill="inherit"
         stroke="none"
@@ -94,7 +97,7 @@ export const HeroHeaderLeftContainer = (props) => {
         </SkillTotal> */}
       </TEXT>
 
-      <Button>
+      <Button open={open}>
         <p>Pleased to meet you</p> <SvgIcon />
         {/* <br /> */}
         <span>tea or coffee ? </span>
@@ -113,12 +116,12 @@ export const HeroHeaderLeftContainer = (props) => {
 
 
 export const HeroHeaderRightContainer = (props) => {
-  const { width, height } = useViewport();
+  // const { width, height } = useViewport();
   const mobileBreak = 600;
   const tabletBreak = 1000;
   const desktopBreak = 1300;
-  console.log("this is width: ", width);
-  console.log("this is height: ", height);
+  // console.log("this is width: ", width);
+  // console.log("this is height: ", height);
   let robotAnimation = (<Lottie options={AnimationCreateRobot} height={`100%`}/>);
 
   // if (width >= 1024) {

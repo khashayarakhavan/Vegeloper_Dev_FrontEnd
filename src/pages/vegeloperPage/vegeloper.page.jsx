@@ -140,9 +140,9 @@ const VegeloperPage = () => {
       </Nav>
       <Burger onClick={() => setOpen(!open)} className="uil uil-bars" />
       <Content open={open}>
-        <VegeloperContainer>
+        <VegeloperContainer open={open}>
           <Header />
-          <HeroHeaderLeftContainer />
+          <HeroHeaderLeftContainer open={open} />
           <HeroHeaderRightContainer />
           <ScrollDownCTA />
           <Heading />
