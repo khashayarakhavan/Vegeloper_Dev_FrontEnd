@@ -77,13 +77,19 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => 
       <Dialog isOpen={popUpOpen}>
         <DialogContent>
           <Header>
-            <Title>Verify Account</Title>
+            <Title>Need a Call?</Title>
             <span className="material-icons" onClick={togglePopUp}>
               close
             </span>
           </Header>
-          <Message>Enter the code we just sent you below.</Message>
+          <Message>Please Enter Your Phone Number </Message>
           <CodeRow>
+            <CodeInput placeholder="0" />
+            <CodeDash>-</CodeDash>
+            <CodeInput placeholder="0" />
+            <CodeDash>-</CodeDash>
+            <CodeInput placeholder="0" />
+            <CodeDash>-</CodeDash>
             <CodeInput placeholder="0" />
             <CodeDash>-</CodeDash>
             <CodeInput placeholder="0" />
@@ -103,7 +109,7 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => 
       <Content open={menuOpen}>
         <VegeloperContainer>
           <TopMenu />
-          <HeroHeader.LeftContainer  />
+          <HeroHeader.LeftContainer />
           <HeroHeader.RightContainer />
           <ScrollDownCTA />
           <Heading />

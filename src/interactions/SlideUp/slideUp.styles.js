@@ -56,12 +56,14 @@ export const Overlay = styled.div`
 
 export const DialogOpenStyles = css`
   transform: translateX(-50%) translateY(-100px);
-  display: block;
+  ${"" /* display: block; */}
+  visibility: visible;
   opacity: 1;
 `;
 
 export const Dialog = styled.div`
-  display: hidden;
+  ${'' /* display: none; */}
+  visibility: hidden;
   opacity: 0;
   position: absolute;
   z-index: 101;
@@ -69,15 +71,15 @@ export const Dialog = styled.div`
   left: 0; */}
   left: 50%;
   top: 300px;
-  font-size: 12px !important;
+  font-size: 14px;
   width: min-content;
   height: 300px;
   background: ${colors.neutrals.light};
   ${"" /* transform: translateY(${(p) => (p.isOpen ? 0 : "100%")}); */}
 
-  transform: translateX(-50%)  translateY(0px);
+  transform: translateX(-50%) translateY(0);
   ${(p) => p.isOpen && DialogOpenStyles};
-  transition: all ${duration};
+  transition: all 1s;
 `;
 
 export const DialogContent = styled.div`
@@ -86,6 +88,7 @@ export const DialogContent = styled.div`
 
 export const Header = styled.div`
   display: flex;
+  
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.75rem;
@@ -96,12 +99,13 @@ export const Header = styled.div`
 `;
 
 export const Title = styled.div`
+  font-size: 18px;
   font-weight: 600;
   color: ${rgba("#10132F", 0.8)};
 `;
 
 export const Message = styled.div`
-  font-size: 0.875rem;
+  font-size: 1.2875rem;
   color: ${rgba("#10132F", 0.38)};
   margin-bottom: 1.75rem;
 `;
@@ -139,5 +143,10 @@ export const GradientButton = styled.button`
   padding: 1rem;
   outline: none;
   cursor: pointer;
+  background: linear-gradient(
+    to right,
+    ${colors.accent.ochrePale},
+    ${colors.accent.ochreFire}
+  );
   background: linear-gradient(to right, #6330b4, #6300ff);
 `;
