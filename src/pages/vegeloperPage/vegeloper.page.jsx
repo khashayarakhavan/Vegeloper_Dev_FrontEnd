@@ -59,6 +59,10 @@ const Content = styled.div`
 
 const Burger = styled.button`
 position: fixed;
+&:focus, &:active {
+  border: none;
+  outline: none;
+}
 top: 2rem;
 left: 2rem;
 z-index: 100;
@@ -89,6 +93,12 @@ const NavButton = styled.button`
   height: 44px;
   background: transparent;
   color: ${rgba("white", 0.5)};
+  &:focus,
+  &:hover,
+  &:active {
+    border: none;
+    outline: none;
+  }
 `;
 
 const NavIcon = styled.span`
@@ -97,6 +107,13 @@ const NavIcon = styled.span`
   color: ${colors.secondary.darkest};
   color: ${colors.neutrals.light};
   color: white;
+  border: none;
+  outline: none;
+  
+  &:focus,
+  &:active {
+    color: red;
+  }
 `;
 
 const NavText = styled.span`

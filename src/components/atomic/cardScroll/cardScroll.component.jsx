@@ -3,7 +3,7 @@ import React from 'react';
 //Images
 import { firstCardImage } from "../../../design/images";
 //Style
-import { CardScroll } from "./cardScroll.styles";
+import { CardScroll, Highlighter } from "./cardScroll.styles";
 
 //Code
 const Template = () => {
@@ -25,10 +25,12 @@ const Template = () => {
               <i className=" icon-basic-heart"></i>
             </div> */}
 
-      <h3 className="heading-tertiary">AYOCO Project</h3>
+      <h3 className="heading-tertiary">
+        <Highlighter>AYOCO</Highlighter> Project
+      </h3>
       <span />
       <p className="feature-box__text">
-        shaja baja much loven disch very guten disch 
+        shaja baja much loven disch very guten disch
       </p>
       <div className="technologies">
         <i className=" icon-basic-heart"></i>
