@@ -7,7 +7,11 @@ import shadows from '../../design/shadows.styles';
 
 //Design
 import {respond} from '../../design/responsive';
-
+import {
+  Link as ScrollLink,
+  Element,
+  animateScroll as scroll,
+} from "react-scroll";
 // const openStyles = css`
 //   ${'' /* transform: translateX(100px) scale(0.95); */}
 //   border-radius: 10vw;
@@ -18,14 +22,20 @@ import {respond} from '../../design/responsive';
 //   border-radius: 10vw;
 //   ${"" /* border-radius: 10vw; */}
 // `;
+export const ScrollLinkCustom = styled(ScrollLink)`
+  color: red;
+`;
 
 export const VegeloperContainer = styled.div`
+  & > .active {
+    background: red !important;
+  }
   width: 100%;
   ${"" /* padding: 2rem 1.5rem; */}
   ${"" /* border-radius: 40px; */}
   background: #210f40;
   ${"" /* transform: translateX(0) scale(1); */}
-  ${'' /* ${(p) => p.open && openStyles}; */}
+  ${"" /* ${(p) => p.open && openStyles}; */}
   transition: all 0.45s;
   ${"" /* ${(p) => p.open && openStyles}; */}
   position: relative;

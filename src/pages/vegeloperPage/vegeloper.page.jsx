@@ -61,8 +61,18 @@ import {
   CodeDash,
   GradientButton,
 } from "../../interactions/SlideUp/slideUp.styles";
-const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => {
 
+import { Link as ScrollLink, Element, animateScroll as scroll } from "react-scroll";
+import {ScrollLinkCustom} from './vegeloper.styles';
+
+const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => {
+  
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+    
+  };
+
+  
   return (
     <Phone>
       <Nav>
@@ -78,10 +88,7 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => 
         <DialogContent>
           <Header>
             <Title>Need a Call?</Title>
-            <span
-              className="material-icons"
-              onClick={() => togglePopUp(false)}
-            >
+            <span className="material-icons" onClick={() => togglePopUp(false)}>
               close
             </span>
           </Header>
@@ -110,9 +117,12 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => 
       </Dialog>
 
       <Content open={menuOpen}>
-        <VegeloperContainer>
+        <VegeloperContainer id="test">
           <TopMenu />
-          <HeroHeader.LeftContainer />
+          <Element name="test1" className="element">
+            <h3>here</h3>
+          </Element>
+          <HeroHeader.LeftContainer name="firstInsideContainer" />
           <HeroHeader.RightContainer />
           <ScrollDownCTA />
           <Heading />
@@ -120,6 +130,27 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => 
           <ScrollHorizontal />
           <Projects />
           <MiniCards />
+          {/* <ScrollLink
+            activeClass="active"
+            to="top"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+          >
+            <h1>Hi</h1>
+          </ScrollLink>
+           */}
+          <ScrollLinkCustom
+            activeClass="active"
+            to="test1"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+          >
+            <h1>2nd</h1>
+          </ScrollLinkCustom>
         </VegeloperContainer>
       </Content>
     </Phone>
