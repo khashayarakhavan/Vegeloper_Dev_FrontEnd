@@ -3,8 +3,8 @@ import React from 'react';
 //Images
 import { firstCardImage } from "../../../design/images";
 //Style
-import { CardScroll } from "./cardScroll.styles";
-import { Highlighter } from '../../../interactions/HighLighter/highlighter.styles';
+import { CardScroll, Highlighter } from "./cardScroll.styles";
+
 //Code
 const Template = () => {
   return (

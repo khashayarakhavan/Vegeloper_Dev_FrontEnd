@@ -19,7 +19,8 @@ import { checkUserSession } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import GlobalStyle from './design/global.styles';
 import GlobalConstants from './design/constants.styles';
-import TestPage from './pages/testPage/modernNav';
+//Test Page
+import TestPage from './pages/testPage/testPage.page';
 
 import {
   invertTheme, noChange,
