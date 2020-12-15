@@ -7,6 +7,7 @@ import directoryReducer from './directory/directory.reducer';
 import shopReducer from './shop/shop.reducer';
 import themesReducer from './themes/themes.reducer';
 import userReducer from './user/user.reducer';
+import vegeloperPageReducer from './vegeloperPage/vegeloperPage.reducer';
 
 const persistConfig = {
   key: 'root',
@@ -16,6 +17,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: userReducer,
+  vegeloper: vegeloperPageReducer,
   cart: cartReducer,
   directory: directoryReducer,
   shop: shopReducer,

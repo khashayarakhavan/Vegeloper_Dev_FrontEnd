@@ -88,7 +88,7 @@ export const HeroHeaderLeftContainer = (props) => {
 
       <TEXT>
         <p style={{ display: "inline" }}>
-          a web <span style={{fontWeight: 400}}>developer</span>
+          a web <span style={{ fontWeight: 400 }}>developer</span>
         </p>
         {/* <p className="love" style={{ display: "inline-block" }}>and I love</p>
         <SkillTotal>

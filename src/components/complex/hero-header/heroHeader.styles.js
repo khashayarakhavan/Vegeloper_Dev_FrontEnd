@@ -26,7 +26,6 @@ export const HeroHeaderLeft = styled.div`
   grid-row: 2 / span 1;
   grid-column: center-start / center-end;
   position: relative;
-
   margin-top: clamp(30px, 10vw, 10vw);
   margin-top: clamp(30px, 10vw, 10vw);
   ${"" /* height: clamp(88.83333vw, 50vh, 50vh); */}
@@ -422,9 +421,9 @@ export const Button = styled.div`
 
   border: none;
   background: transparent;
-  background-color: red;
+  ${'' /* background-color: red;
   background-color: ${(p) => p.open && "blue"} !important;
-  border-radius: 0 !important;
+  border-radius: 0 !important; */}
   transition: all 1s;
 
   text-rendering: optimizeSpeed;

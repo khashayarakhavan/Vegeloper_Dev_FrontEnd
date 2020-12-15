@@ -49,8 +49,9 @@ const openStyles = css`
 const Content = styled.div`
   ${"" /* height: 800px; */}
   width: 100%;
-  ${'' /* padding: 2rem 1.5rem; */}
-  ${'' /* border-radius: 40px; */}
+  ${"" /* padding: 2rem 1.5rem; */}
+
+  border-radius: 0px;
   overflow: hidden;
   background: #210f40;
   transform: translateX(0) scale(1);
@@ -140,7 +141,7 @@ const VegeloperPage = () => {
       </Nav>
       <Burger onClick={() => setOpen(!open)} className="uil uil-bars" />
       <Content open={open}>
-        <VegeloperContainer open={open}>
+        <VegeloperContainer open={open} >
           <Header />
           <HeroHeaderLeftContainer open={open} />
           <HeroHeaderRightContainer />
