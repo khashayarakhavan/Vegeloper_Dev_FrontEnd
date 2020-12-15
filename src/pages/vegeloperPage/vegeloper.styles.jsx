@@ -1,16 +1,17 @@
 //Libraries
 
 import styled, { css } from "styled-components";
+import {rgba} from 'polished';
 import colors from '../../design/colors';
 import shadows from '../../design/shadows.styles';
 
 //Design
 import {respond} from '../../design/responsive';
 
-const openStyles = css`
-  ${'' /* transform: translateX(100px) scale(0.95); */}
-  border-radius: 10vw;
-`;
+// const openStyles = css`
+//   ${'' /* transform: translateX(100px) scale(0.95); */}
+//   border-radius: 10vw;
+// `;
 
 //Code
 // const openStyles = css`
@@ -403,6 +404,111 @@ export const ScrollCardItem = styled.div`
     box-shadow: ${shadows.neumorphic.original};
   }
 `;
+
+
+
+
+export const Phone = styled.div`
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  background: #5a32a0;
+  background-color: ${colors.accent.ochreFire};
+  background-color: ${colors.accent.ochreOxide};
+  background-color: ${colors.accent.ochrePale};
+`;
+
+const openStyles = css`
+  transform: translateX(100px) scale(0.95);
+  border-radius: 10vw;
+`;
+
+export const Content = styled.div`
+  ${"" /* height: 800px; */}
+  width: 100%;
+  ${"" /* padding: 2rem 1.5rem; */}
+
+  border-radius: 0px;
+  overflow: hidden;
+  background: #210f40;
+  transform: translateX(0) scale(1);
+  transition: 0.45s ${(p) => p.open && openStyles};
+`;
+
+export const Burger = styled.button`
+  position: fixed;
+  &:focus,
+  &:active {
+    border: none;
+    outline: none;
+  }
+  top: 2rem;
+  left: 2rem;
+  z-index: 100;
+  background: transparent;
+  border: 0;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+`;
+
+export const Nav = styled.nav`
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  ${"" /* background: red; */}
+  top: 50vh;
+  transform: translateY(-50%);
+`;
+
+export const NavButton = styled.button`
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: flex-start;
+  height: 44px;
+  background: transparent;
+  color: ${rgba("white", 0.5)};
+  &:focus,
+  &:hover,
+  &:active {
+    border: none;
+    outline: none;
+  }
+`;
+
+export const NavIcon = styled.span`
+  font-size: 3.5rem;
+  color: ${colors.accent.new3};
+  color: ${colors.secondary.darkest};
+  color: ${colors.neutrals.light};
+  color: white;
+  border: none;
+  outline: none;
+
+  &:focus,
+  &:active {
+    color: red;
+  }
+`;
+
+export const NavText = styled.span`
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: ${colors.secondary.darkest};
+  color: ${colors.neutrals.light};
+  color: white;
+`;
+
+{
+  /* <link
+  rel="stylesheet"
+  href="https://unicons.iconscout.com/release/v3.0.3/css/line.css"
+/>; */
+}
 
 
 

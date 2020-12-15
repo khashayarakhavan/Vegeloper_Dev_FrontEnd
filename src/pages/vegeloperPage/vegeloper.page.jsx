@@ -15,122 +15,34 @@ import { LandingPageContainer } from "./vegeloper.styles";
 import Header from '../../components/Sections/header/header.component';
 import Heading from '../../components/Sections/Heading/heading.component';
 import ScrollHorizontal from '../../components/Sections/ScrollHorizontal/scrollHorizontal.component';
-import {
-  HeroHeaderLeftContainer,
-  HeroHeaderRightContainer,
-} from "../../components/complex/hero-header/heroHeader.component";
+import HeroHeader from "../../components/complex/hero-header/heroHeader.component";
+// import HeroHeaderLeftContainer ,{
+//   HeroHeaderRightContainer,
+// } from "../../components/complex/hero-header/heroHeader.component";
 
 //Section
 import {YouTube} from '../../components/Sections/YouTube/youTube.component';
 import Projects from '../../components/Sections/Projects/projects.component';
 
-//Design
+//Styles
 import {
   VegeloperContainer,
 } from "./vegeloper.styles";
 
 import ScrollDownCTA from '../../components/Sections/ScrollDown/ScrollDown.component';
-import colors from '../../design/colors';
-const Phone = styled.div`
-  position: relative;
-  overflow: hidden;
-  width: 100vw;
-  background: #5a32a0;
-  background-color: ${colors.accent.ochreFire};
-  background-color: ${colors.accent.ochreOxide};
-  background-color: ${colors.accent.ochrePale};
-`;
+import {Phone, Nav, NavButton, NavIcon, NavText, Burger, Content} from './vegeloper.styles';
+//State Mangement
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+//State Selector
+// import { selectCurrentUser } from "./redux/user/user.selectors";
+import { selectMenuOpen } from "../../redux/vegeloperPage/vegeloperPage.selectors";
+//Actions
+// import { checkUserSession } from "./redux/user/user.actions";
+import { toggleMenuOpen } from "../../redux/vegeloperPage/vegeloperPage.actions";
 
-const openStyles = css`
-  transform: translateX(100px) scale(0.95);
-  border-radius: 10vw;
-`;
-
-const Content = styled.div`
-  ${"" /* height: 800px; */}
-  width: 100%;
-  ${"" /* padding: 2rem 1.5rem; */}
-
-  border-radius: 0px;
-  overflow: hidden;
-  background: #210f40;
-  transform: translateX(0) scale(1);
-  transition: 0.45s ${(p) => p.open && openStyles};
-`;
-
-const Burger = styled.button`
-position: fixed;
-&:focus, &:active {
-  border: none;
-  outline: none;
-}
-top: 2rem;
-left: 2rem;
-z-index: 100;
-  background: transparent;
-  border: 0;
-  font-size: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-`;
-
-const Nav = styled.nav`
-  position: absolute;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  ${'' /* background: red; */}
-  top: 50vh;
-  transform: translateY(-50%);
-`;
-
-const NavButton = styled.button`
-  display: flex;
-  border: none;
-  align-items: center;
-  justify-content: flex-start;
-  height: 44px;
-  background: transparent;
-  color: ${rgba("white", 0.5)};
-  &:focus,
-  &:hover,
-  &:active {
-    border: none;
-    outline: none;
-  }
-`;
-
-const NavIcon = styled.span`
-  font-size: 3.5rem;
-  color: ${colors.accent.new3};
-  color: ${colors.secondary.darkest};
-  color: ${colors.neutrals.light};
-  color: white;
-  border: none;
-  outline: none;
-  
-  &:focus,
-  &:active {
-    color: red;
-  }
-`;
-
-const NavText = styled.span`
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: ${colors.secondary.darkest};
-  color: ${colors.neutrals.light};
-  color: white;
-`;
-
-{/* <link
-  rel="stylesheet"
-  href="https://unicons.iconscout.com/release/v3.0.3/css/line.css"
-/>; */}
-const VegeloperPage = () => {
-  const [open, setOpen] = useState(false);
+const VegeloperPage = ({ menuOpen, toggleMenuOpen }) => {
+  // const [open, setOpen] = useState(false);
   return (
     <Phone>
       <Nav>
@@ -139,12 +51,12 @@ const VegeloperPage = () => {
         </NavButton>
         <NavText>Home</NavText>
       </Nav>
-      <Burger onClick={() => setOpen(!open)} className="uil uil-bars" />
-      <Content open={open}>
-        <VegeloperContainer open={open} >
+      <Burger onClick={toggleMenuOpen} className="uil uil-bars" />
+      <Content open={menuOpen}>
+        <VegeloperContainer open={menuOpen}>
           <Header />
-          <HeroHeaderLeftContainer open={open} />
-          <HeroHeaderRightContainer />
+          <HeroHeader.LeftContainer open={menuOpen} />
+          <HeroHeader.RightContainer />
           <ScrollDownCTA />
           <Heading />
           <YouTube />
@@ -156,6 +68,23 @@ const VegeloperPage = () => {
     </Phone>
   );
 };
+
+
+
+
+const mapStateToProps = createStructuredSelector({
+  // currentUser: selectCurrentUser,
+  menuOpen: selectMenuOpen,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  // checkUserSession: () => dispatch(checkUserSession()),
+  toggleMenuOpen: () => dispatch(toggleMenuOpen()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(VegeloperPage);
+
+
 // const VegeloperPage = () => (
 //   <VegeloperContainer>
 //     <Header />
@@ -169,9 +98,6 @@ const VegeloperPage = () => {
 //     <MiniCards />
 //   </VegeloperContainer>
 // );
-
-export default VegeloperPage;
-
 
 
 

@@ -52,27 +52,26 @@ import {
 } from "./heroHeader.styles";
 
 
+//State Mangement
+
+
+//State Selector
+// import { selectCurrentUser } from "./redux/user/user.selectors";
+import { selectMenuOpen } from "../../../redux/vegeloperPage/vegeloperPage.selectors";
+//Actions
+// import { checkUserSession } from "./redux/user/user.actions";
+import { toggleMenuOpen } from "../../../redux/vegeloperPage/vegeloperPage.actions";
+// import { toggleMenuOpen } from "../../../redux";
+
 export const HeroHeaderLeftContainer = (props) => {
-  // const { width, height } = useViewport();
-  const mobileBreak = 500;
-  const tabletBreak = 1000;
-  // const desktopBreak = 1300;
-  // console.log("this is width: ", width);
-  // console.log("this is height: ", height);
+  const Action_ToggleMenuOpen = props.toggleMenuOpen;
   const open = props.open;
 
 
 
   return (
     <HeroHeaderLeft open={open}>
-      {/* <SvgHeart
-        fill="inherit"
-        stroke="none"
-        strokeWidth="2px"
-        width="28px"
-        height="28px"
-        name="icon-home"
-      /> */}
+
 
       <Heading>
         <p className="hi">
@@ -90,95 +89,24 @@ export const HeroHeaderLeftContainer = (props) => {
         <p style={{ display: "inline" }}>
           a web <span style={{ fontWeight: 400 }}>developer</span>
         </p>
-        {/* <p className="love" style={{ display: "inline-block" }}>and I love</p>
-        <SkillTotal>
-          <Skill_1>coding</Skill_1>,<Skill_2>science</Skill_2>&
-          <Skill_3>nature</Skill_3>
-        </SkillTotal> */}
+
       </TEXT>
 
-      <Button open={open}>
+      <Button open={open} onClick={Action_ToggleMenuOpen}>
         <p>Pleased to meet you</p> <SvgIcon />
         {/* <br /> */}
         <span>tea or coffee ? </span>
         <BackgroundFigure></BackgroundFigure>
       </Button>
-      {/* <ScrollDownCTA>
-        <ArrowContainer>
-        <Arrow>
-          <path stroke-linecap="round" class="a1" d="M0 0 L20 22 L40 0"></path>
-        </Arrow>
-        </ArrowContainer>
-      </ScrollDownCTA> */}
+
     </HeroHeaderLeft>
   );
 };
 
 
+
 export const HeroHeaderRightContainer = (props) => {
-  // const { width, height } = useViewport();
-  const mobileBreak = 600;
-  const tabletBreak = 1000;
-  const desktopBreak = 1300;
-  // console.log("this is width: ", width);
-  // console.log("this is height: ", height);
   let robotAnimation = (<Lottie options={AnimationCreateRobot} height={`100%`}/>);
-
-  // if (width >= 1024) {
-  //     robotAnimation = <HeroHeaderLottie
-  //       options={AnimationCreateRobot}
-  //       resizeMode="cover"
-  //       height={`min-content`}        
-  //     />;
-  // }
-  
-
-  // if ( width <= 450 && width > 400) {
-  //   robotAnimation = (
-  //     <HeroHeaderLottie
-  //       options={AnimationCreateRobot}
-  //       resizeMode="cover"
-  //       height={340}
-        
-  //     />
-  //   );
-  // } else if ( width <= 400 && width > 350) {
-  //     robotAnimation = (
-  //       <HeroHeaderLottie
-  //         options={AnimationCreateRobot}
-  //         resizeMode="cover"
-  //         height={300}
-          
-  //       />
-  //     );
-  //   } 
-  //    else if ( width <= 350 && width > 300) {
-  //     robotAnimation = (
-  //       <HeroHeaderLottie
-  //         options={AnimationCreateRobot}
-  //         resizeMode="cover"
-  //         height={270}
-          
-  //       />
-  //     );
-  //   } else if ( width <= 300) {
-  //     robotAnimation = (
-  //       <HeroHeaderLottie
-  //         options={AnimationCreateRobot}
-  //         resizeMode="cover"
-  //         height={220}
-          
-  //       />
-  //     );
-  //   } else if (width >= 1024) {
-  //     robotAnimation = <HeroHeaderLottie
-  //       options={AnimationCreateRobot}
-  //       resizeMode="cover"
-  //       height={`32.5vw`}
-        
-        
-  //     />;
-  //   }
 
   return (
     <HeroHeaderRight>
@@ -187,3 +115,31 @@ export const HeroHeaderRightContainer = (props) => {
   );
 };
 
+
+
+
+
+
+
+const mapStateToProps = createStructuredSelector({
+  // currentUser: selectCurrentUser,
+  menuOpen: selectMenuOpen,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  // checkUserSession: () => dispatch(checkUserSession()),
+  toggleMenuOpen: () => dispatch(toggleMenuOpen()),
+});
+
+// export default connect(mapStateToProps, mapDispatchToProps)(HeroHeaderLeftContainer);
+
+export default {
+  LeftContainer: connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(HeroHeaderLeftContainer),
+  RightContainer: connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(HeroHeaderRightContainer),
+};
