@@ -78,7 +78,10 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => 
         <DialogContent>
           <Header>
             <Title>Need a Call?</Title>
-            <span className="material-icons" onClick={togglePopUp}>
+            <span
+              className="material-icons"
+              onClick={() => togglePopUp(false)}
+            >
               close
             </span>
           </Header>
@@ -135,7 +138,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   // checkUserSession: () => dispatch(checkUserSession()),
   toggleMenuOpen: () => dispatch(toggleMenuOpen()),
-  togglePopUp: () => dispatch(togglePopUp()),
+  togglePopUp: value => dispatch(togglePopUp(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VegeloperPage);

@@ -17,11 +17,20 @@ const VegeloperPageReducer = (state = INITIAL_STATE, action) => {
         menuOpen: !state.menuOpen,
       };
     case VegeloperPageActionTypes.TOGGLE_POP_UP:
-      console.log("Hello from POP UP :D");
-      return {
-        ...state,
-        popUpOpen: !state.popUpOpen,
+      if (action.payload === false || action.payload === true) {
+        console.log("Hello from POP UP with Direct Input :D");
+        return {
+          ...state,
+          popUpOpen: action.payload,
+        };
+      } else {
+        console.log("Hello from POP UP using Toggle :D");
+        return {
+          ...state,
+          popUpOpen: !state.popUpOpen,
+        };
       };
+      
     case VegeloperPageActionTypes.TOGGLE_DARK_MODE:
       console.log("Hello from DARK MODE :D");
       return {
