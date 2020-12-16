@@ -1,6 +1,7 @@
 //Basics
 import React, { useState } from "react";
 import LazyLoad from 'react-lazy-load';
+import reduxSaga from "redux-saga";
 import json from './lazyCard.data.json';
 //Styles
 import {Row, Avatar, Name, Card, List} from './lazyCard.styles';
@@ -13,7 +14,7 @@ const LazyLoadRow = ({ name, likes, background }) => (
       <Avatar />
       <Name />
     </Row>
-    <LazyLoad height={70}>
+    <LazyLoad height={56}>
       <Row >
         <Avatar style={{background}}>
           {name.substring(0, 2)}
@@ -28,6 +29,27 @@ const LazyLoadRow = ({ name, likes, background }) => (
 const LazyLoadCard = () => (
   <Card>
     <List>
+      <Row>
+        <Avatar style={{ background: "lightyellow", color: "black" }}>
+          AK
+          {/* {name} */}
+        </Avatar>
+        <Name>Aftofl Big5</Name>
+      </Row>
+      <Row>
+        <Avatar style={{ background: "pink", color: "black" }}>
+          JAMA
+          {/* {name} */}
+        </Avatar>
+        <Name>DR JAMA FelFel</Name>
+      </Row>
+      <Row>
+        <Avatar style={{ background: "lightblue", color: "black" }}>
+          PLPO
+          {/* {name} */}
+        </Avatar>
+        <Name>POLPO Nanaj</Name>
+      </Row>
       {json.map((obj) => (
         <LazyLoadRow key={obj.id} name={obj.name} background={obj.background} />
       ))}

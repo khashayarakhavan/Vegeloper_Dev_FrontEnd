@@ -7,23 +7,51 @@ import colors from '../../design/colors';
 const colorBackground = '#270f4b'
 //Code
 export const Card = styled.div`
-display: block;
-margin-top: 10rem;
+  position: absolute;
+  top: 10rem;
+  left: 10rem;
   width: 300px;
   padding: 2rem 1.5rem;
-  ${'' /* margin: 5rem; */}
+  ${"" /* */}
   border-radius: 3rem;
   background: ${colorBackground};
   background: ${colors.neutrals.darkest};
-  
+
+ 
 `;
 
 export const List = styled.div`
+  ${'' /* background: pink; */}
+
   position: relative;
   overflow: auto;
-  height: 224px;
+  height: 220px;
   font-size: 14px;
   padding: 2rem;
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar-thumb:vertical {
+    background-color: ${colors.secondary.lightest};
+    background-color: #0ae;
+    background-image: -webkit-gradient(
+      linear,
+      0 0,
+      0 100%,
+      color-stop(0.5, rgba(255, 255, 255, 0.2)),
+      color-stop(0.5, transparent),
+      to(transparent)
+    );
+  }
 `;
 
 export const Avatar = styled.div`
