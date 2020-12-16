@@ -17,12 +17,17 @@ import { PrussianBlue_To_Orange } from '../../../design/effects.styles';
 import { ReactComponent as VegeloperLogo } from "../../../assets/SVG/Vegeloper.svg";
 import { ReactComponent as WebWeaverLine } from "../../../assets/SVG/WebWeaver-Line.svg";
 import {VegeloperContainer} from '../../../pages/vegeloperPage/vegeloper.styles';
-
+import {
+  Link as ScrollLink,
+  Element,
+  animateScroll as scroll,
+} from "react-scroll";
 
 
 export const SectionYoutube = styled(VegeloperContainer)`
+ 
   grid-column: cover-start / cover-end;
-  
+
   position: relative;
 
   margin-bottom: 5rem;
@@ -31,6 +36,17 @@ export const SectionYoutube = styled(VegeloperContainer)`
   justify-content: center;
   align-content: center;
 `;
+// export const SectionYoutube = styled(VegeloperContainer)`
+//   grid-column: cover-start / cover-end;
+  
+//   position: relative;
+
+//   margin-bottom: 5rem;
+
+//   display: grid;
+//   justify-content: center;
+//   align-content: center;
+// `;
 
 
 export const YTContainer = styled.div`

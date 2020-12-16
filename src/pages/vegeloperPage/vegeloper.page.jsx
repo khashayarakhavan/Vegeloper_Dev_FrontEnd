@@ -119,28 +119,19 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => 
       <Content open={menuOpen}>
         <VegeloperContainer id="test">
           <TopMenu />
-          <Element name="test1" className="element">
+          {/* <Element name="test1" className="element">
             <h3>here</h3>
-          </Element>
+          </Element> */}
           <HeroHeader.LeftContainer name="firstInsideContainer" />
           <HeroHeader.RightContainer />
           <ScrollDownCTA />
           <Heading />
+          <Element name="test1" className="element" />
           <YouTube />
+          <Element name="test2" className="element" />
           <ScrollHorizontal />
           <Projects />
           <MiniCards />
-          {/* <ScrollLink
-            activeClass="active"
-            to="top"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-          >
-            <h1>Hi</h1>
-          </ScrollLink>
-           */}
           <ScrollLinkCustom
             activeClass="active"
             to="test1"

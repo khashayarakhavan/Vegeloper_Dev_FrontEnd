@@ -53,7 +53,6 @@ export const Burger = styled.button`
 export const Nav = styled.nav`
   position: absolute;
   display: flex;
-
   align-items: center;
   top: 50%;
   transform: translateY(-50%);

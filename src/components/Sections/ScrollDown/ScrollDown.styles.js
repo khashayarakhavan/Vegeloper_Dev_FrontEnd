@@ -12,9 +12,14 @@ import sizes from "../../../design/sizes";
 import shadows from "../../../design/shadows.styles";
 import fonts from "../../../design/fonts.styles";
 import margins from "../../../design/margins.styles";
+import {
+  Link as ScrollLink,
+  Element,
+  animateScroll as scroll,
+} from "react-scroll";
 
 
-export const ScrollDownCTA = styled.section`
+export const ScrollDownCTA = styled(ScrollLink)`
   grid-column: center-start/ center-end;
   ${"" /* justify-self: flex-start; */}
   align-self: flex-start;
@@ -31,7 +36,7 @@ export const ScrollDownCTA = styled.section`
   margin-top: 0.9765625vw;
   `}
 `;
-export const ArrowContainer = styled.div`
+export const ArrowContainer = styled(ScrollLink)`
   margin-top: -2rem;
 
   display: flex;

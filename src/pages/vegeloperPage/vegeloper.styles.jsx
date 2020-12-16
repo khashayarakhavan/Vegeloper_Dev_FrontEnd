@@ -26,7 +26,7 @@ export const ScrollLinkCustom = styled(ScrollLink)`
   color: red;
 `;
 
-export const VegeloperContainer = styled.div`
+export const VegeloperContainer = styled(Element)`
   & > .active {
     background: red !important;
   }

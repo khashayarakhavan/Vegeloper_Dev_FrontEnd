@@ -12,7 +12,14 @@ class Template extends Component {
 
         return (
           <ScrollDownCTA>
-            <ArrowContainer>
+            <ArrowContainer
+              activeClass="active"
+              to="test1"
+              spy={true}
+              smooth={true}
+              offset={-300}
+              duration={1000}
+            >
               <Arrow>
                 <path
                   stroke-linecap="round"

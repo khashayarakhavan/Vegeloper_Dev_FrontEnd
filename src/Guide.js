@@ -3,6 +3,8 @@
 // Use-Case: Creating styles using JS instead of SASS.
 // Edge: Dynamically scalable, Create re-usable components with files.
 
+import SvgAircraftTakeOff from "./assets/svgReact/AircraftTakeOff";
+
 // Beginning of Styled-components example:
 const Constant = styled.div.attrs((props) => ({
   localShadow: "grey", // Define static props.
@@ -132,7 +134,7 @@ main {
         }
     }
 }
-
+   
 
 
 /* 
@@ -157,3 +159,16 @@ export const SearchBox = ({ toggleCartHidden, itemCount }) => (
 
        //TODO: Golden effect
        background-image: linear-gradient(to right, #f7bf7b, #b28451);
+
+
+       //Vertical align property to change image SVG size 
+       tag img src Svg
+       vertical-align: baseline;
+       position: inline;
+       
+
+      //
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      
