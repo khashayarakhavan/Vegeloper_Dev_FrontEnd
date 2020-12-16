@@ -16,7 +16,7 @@ import { rgba } from "polished";
 import {Content, Nav, Phone, Burger, NavButton, NavIcon, NavText} from './basePage.styles';
 //Interactions
 import SlideUpDialog from '../../interactions/SlideUp/slideUp.component';
-
+import LazyCard from '../../interactions/LazyCard/lazyCard.component';
 
 
 
@@ -33,7 +33,8 @@ const BasePage = ({ menuOpen, toggleMenuOpen }) => {
       </Nav>
       <Content open={menuOpen}>
         <Burger onClick={toggleMenuOpen} className="uil uil-bars" />
-        <SlideUpDialog />
+        <LazyCard />
+        {/* <SlideUpDialog /> */}
       </Content>
     </Phone>
   );

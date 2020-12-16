@@ -23,6 +23,7 @@ export const openStyles = css`
 
 export const Content = styled.div`
   ${"" /* height: 800px; */}
+  postion: relative;
   width: 100%;
   height: 100%;
   ${"" /* padding: 2rem 1.5rem; */}
