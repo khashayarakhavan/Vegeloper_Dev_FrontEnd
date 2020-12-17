@@ -1,6 +1,6 @@
 //Basics
 import React, { useState } from "react";
-import { EditorState } from "draft-js";
+import { EditorState , RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import { convertToHTML } from "draft-convert";
 import DOMPurify from "dompurify";
@@ -23,19 +23,50 @@ export const RichTextCard = () => {
      EditorState.createEmpty()
    );
 
-   const [convertedContent, setConvertedContent] = useState(null);
+   const [converted2HtmlContent, setConverted2HtmlContent] = useState(null);
+   const [converted2RawContent, setConvertedRawContent] = useState(null);
 
+   //Handle changes in the editor
    const handleEditorChange = (state) => {
      console.log('Hey this is the state: ',state);
      setEditorLocalState(state);
+     convertContentToRAW();
      convertContentToHTML();
+     console.log(converted2HtmlContent);
+     console.log('JSON is here: ',converted2RawContent);
+   };
+   //Convert editor content to HTML
+   const convertContentToRAW = () => {
+     let raw = convertToRaw(editorLocalState.getCurrentContent());
+     saveEditorContent(raw);
+     setConvertedRawContent(raw);
+   };
+
+   const saveEditorContent = (data) => {
+      localStorage.setItem('editorData', JSON.stringify(data))
    };
 
    const convertContentToHTML = () => {
-     let currentContentAsHTML = convertToHTML(
-       editorLocalState.getCurrentContent()
-     );
-     setConvertedContent(currentContentAsHTML);
+    //  let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
+     let currentContentAsHTML = convertToHTML({
+       styleToHTML: (style) => {
+         if (style === "BOLD") {
+           return <span style={{ color: "blue" }} />;
+         }
+       },
+       blockToHTML: (block) => {
+         if (block.type === "PARAGRAPH") {
+           return <p />;
+         }
+       },
+       entityToHTML: (entity, originalText) => {
+         if (entity.type === "LINK") {
+           return <a href={entity.data.url}>{originalText}</a>;
+         }
+         return originalText;
+       },
+     })(editorLocalState.getCurrentContent());
+     setConverted2HtmlContent(currentContentAsHTML);
    };
 
    const createMarkup = (html) => {
@@ -74,7 +105,8 @@ export const RichTextCard = () => {
       />
       <div
         className="preview"
-        dangerouslySetInnerHTML={createMarkup(convertedContent)}
+        dangerouslySetInnerHTML={createMarkup(converted2HtmlContent)}
+        style={{fontSize: '14px'}}
       ></div>
     </Card>
   );
