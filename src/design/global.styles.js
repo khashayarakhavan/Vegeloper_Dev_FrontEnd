@@ -10,6 +10,11 @@ import colors from './colors';
 
 const GlobalStyle = createGlobalStyle`
 
+.tippy-tooltip.tomato-theme {
+  background-color: tomato;
+  color: yellow;
+}
+
  @font-face {
     font-family: "Transat-Bold";
     src: url("Fonts/Transat/Bold/transat_bold-webfont.woff") format('woff'),
@@ -71,7 +76,9 @@ body {
     line-height: 1.6;
     background: linear-gradient(45deg,
       rgb(242, 243, 247) ,
-      rgba(229, 229, 229, 0.1) );    
+      rgba(229, 229, 229, 0.1) );  
+
+     
 }
 ::selection {
     background-color: ${colors.primary};
