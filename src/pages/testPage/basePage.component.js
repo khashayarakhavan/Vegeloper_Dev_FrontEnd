@@ -17,6 +17,7 @@ import {Content, Nav, Phone, Burger, NavButton, NavIcon, NavText} from './basePa
 //Interactions
 import SlideUpDialog from '../../interactions/SlideUp/slideUp.component';
 import LazyCard from '../../interactions/LazyCard/lazyCard.component';
+import TabbedCard from '../../interactions/TabbedCard/tabbedCard.component';
 
 
 
@@ -34,6 +35,7 @@ const BasePage = ({ menuOpen, toggleMenuOpen }) => {
       <Content open={menuOpen}>
         <Burger onClick={toggleMenuOpen} className="uil uil-bars" />
         <LazyCard />
+        <TabbedCard />
         {/* <SlideUpDialog /> */}
       </Content>
     </Phone>

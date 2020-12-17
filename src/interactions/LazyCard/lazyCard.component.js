@@ -15,10 +15,10 @@ const LazyLoadRow = ({ name, likes, background }) => (
       <Name />
     </Row>
     <LazyLoad height={56}>
-      <Row >
-        <Avatar style={{background}}>
-          {name.substring(0, 2)}
-          {/* {name} */}
+      <Row>
+        <Avatar style={{ background }}>
+          {name.split(" ", 2)[0].substring(0, 1)}
+          {name.split(" ", 2)[1].substring(0, 1)}
         </Avatar>
         <Name>{name}</Name>
       </Row>

@@ -119,9 +119,6 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => 
       <Content open={menuOpen}>
         <VegeloperContainer id="test">
           <TopMenu />
-          {/* <Element name="test1" className="element">
-            <h3>here</h3>
-          </Element> */}
           <HeroHeader.LeftContainer name="firstInsideContainer" />
           <HeroHeader.RightContainer />
           <ScrollDownCTA />
@@ -132,7 +129,7 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => 
           <ScrollHorizontal />
           <Projects />
           <MiniCards />
-          <ScrollLinkCustom
+          {/* <ScrollLinkCustom
             activeClass="active"
             to="test1"
             spy={true}
@@ -141,7 +138,7 @@ const VegeloperPage = ({ menuOpen, toggleMenuOpen, popUpOpen, togglePopUp }) => 
             duration={500}
           >
             <h1>2nd</h1>
-          </ScrollLinkCustom>
+          </ScrollLinkCustom> */}
         </VegeloperContainer>
       </Content>
     </Phone>
