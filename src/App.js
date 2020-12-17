@@ -28,6 +28,9 @@ import {
   ThemeLight
 } from "./design/themes";
 import { ViewportProvider } from './design/viewPort';
+import LogRocket from "logrocket";
+
+LogRocket.init("rwd1ni/vegeloper");
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const LandingPage = lazy(() => import('./pages/landingpage/landingpage.component'));
 const Vegeloper = lazy(() => import('./pages/vegeloperPage/vegeloper.page'));

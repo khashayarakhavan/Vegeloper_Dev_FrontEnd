@@ -21,8 +21,6 @@ export const Card = styled.div`
 `;
 
 export const List = styled.div`
-  ${'' /* background: pink; */}
-
   position: relative;
   overflow: auto;
   height: 220px;
