@@ -3,6 +3,7 @@ import styled, {css} from "styled-components";
 import { rgba } from "polished";
 //Design
 import colors from '../../design/colors';
+import respond from '../../design/responsive';
 
 //Code
 export const Frame = styled.div`
@@ -55,6 +56,9 @@ export const Overlay = styled.div`
 `;
 
 export const DialogOpenStyles = css`
+  ${respond.pc.min`
+  transform: translateX(-50%) translateY(-20vw);
+  `};
   transform: translateX(-50%) translateY(-20vh);
   ${"" /* display: block; */}
   visibility: visible;
@@ -62,21 +66,26 @@ export const DialogOpenStyles = css`
 `;
 
 export const Dialog = styled.div`
-  ${'' /* display: none; */}
+  ${"" /* display: none; */}
   visibility: hidden;
   opacity: 0;
   position: fixed;
   z-index: 101;
   ${"" /* bottom: 0;
   left: 0; */}
-  
+
   left: 50%;
   top: 100vh;
   font-size: 14px;
   width: min-content;
   height: 300px;
   height: 20vh;
+  width: 60vw;
+  ${respond.pc.min`
+   height: 20vw;
   width: 40vw;
+  `};
+
   border-radius: 2vw;
   background: ${colors.neutrals.light};
   ${"" /* transform: translateY(${(p) => (p.isOpen ? 0 : "100%")}); */}
