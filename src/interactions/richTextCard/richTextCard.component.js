@@ -1,5 +1,5 @@
 //Basics
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { EditorState , RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import { convertToHTML } from "draft-convert";
@@ -19,9 +19,17 @@ import underlineIcon from "../../assets/SVG/underline.svg";
 
 
 export const RichTextCard = () => {
-   const [editorLocalState, setEditorLocalState] = useState(() =>
-     EditorState.createEmpty()
-   );
+  const [editorLocalState, setEditorLocalState] = useState(() =>
+    EditorState.createEmpty()
+  );
+
+    useEffect(() => {
+      const rawEditorData = getSavedEditorData();
+      if (rawEditorData !== null) {
+        const contentState = convertFromRaw(rawEditorData);
+        setEditorLocalState(EditorState.createWithContent(contentState));
+      }
+    },[]);
 
    const [converted2HtmlContent, setConverted2HtmlContent] = useState(null);
    const [converted2RawContent, setConvertedRawContent] = useState(null);
@@ -41,9 +49,35 @@ export const RichTextCard = () => {
      saveEditorContent(raw);
      setConvertedRawContent(raw);
    };
-
+   
+   //Save JSON to Database;
    const saveEditorContent = (data) => {
       localStorage.setItem('editorData', JSON.stringify(data))
+   };
+
+   //Load JSON from Database;
+   const getSavedEditorData = () => {
+     const savedData = localStorage.getItem('editroData');
+     return savedData ? JSON.parse(savedData) : null;
+   };
+   //Handle Key command
+   const handleKeyCommand = (command) => {
+     const newState = RichUtils.handleKeyCommand(editorLocalState, command);
+     if (newState) {
+       this.onChange(newState);
+       return true;
+     }
+     return false;
+   };
+
+   //Render Content As Raw JSON
+   const renderContentAsRawJs = () => {
+     const contentState = editorLocalState.getCurrentContent();
+     const raw = convertToRaw(contentState);
+     const textResult = raw.blocks[0].text;
+     const stringJSON = JSON.stringify(raw, null, 2);
+  
+     return textResult;
    };
 
    const convertContentToHTML = () => {
@@ -108,6 +142,7 @@ export const RichTextCard = () => {
         dangerouslySetInnerHTML={createMarkup(converted2HtmlContent)}
         style={{fontSize: '14px'}}
       ></div>
+      <pre style={{fontSize: '14px'}}>{renderContentAsRawJs()}</pre>
     </Card>
   );
 };
