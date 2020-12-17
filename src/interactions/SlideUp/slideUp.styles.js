@@ -55,7 +55,7 @@ export const Overlay = styled.div`
 `;
 
 export const DialogOpenStyles = css`
-  transform: translateX(-50%) translateY(-100px);
+  transform: translateX(-50%) translateY(-20vh);
   ${"" /* display: block; */}
   visibility: visible;
   opacity: 1;
@@ -65,15 +65,19 @@ export const Dialog = styled.div`
   ${'' /* display: none; */}
   visibility: hidden;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   z-index: 101;
   ${"" /* bottom: 0;
   left: 0; */}
+  
   left: 50%;
-  top: 300px;
+  top: 100vh;
   font-size: 14px;
   width: min-content;
   height: 300px;
+  height: 20vh;
+  width: 40vw;
+  border-radius: 2vw;
   background: ${colors.neutrals.light};
   ${"" /* transform: translateY(${(p) => (p.isOpen ? 0 : "100%")}); */}
 

@@ -23,15 +23,10 @@ export const InteractiveTooltip = () => {
 
   return (
     <>
-      {/* <GlobalStyle />
-      <Tooltip position="bottom" title="Welcome to React">
-        <Wrapper>Hover me</Wrapper>
-      </Tooltip> */}
       <Tippy placement="top" content={TooltipContent}>
-        {/* <button variant="outline-success">Submit</button> */}
+
         <Wrapper>Hover me</Wrapper>
       </Tippy>
-     
     </>
   );
 };
