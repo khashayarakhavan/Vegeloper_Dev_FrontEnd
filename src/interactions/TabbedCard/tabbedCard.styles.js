@@ -35,8 +35,10 @@ export const Underline = styled.div`
   left: 0;
   bottom: 0;
   width: 33.333%;
-  height: 4px;
+  ${'' /* width: 33%; */}
+  height: 6px;
   background: #6b44a9;
+  background: ${colors.neutrals.lightest};
   transform: translateX(${p => 
   p.active === 0
     ? 0
@@ -48,10 +50,15 @@ export const Underline = styled.div`
 
 export const Button = styled.button`
   flex: 1 1 33.3333%;
-  
+  font-size: 20px;
+  height: 5rem;
   border-bottom: 1px solid ${rgba("white", 0.25)};
+  background-color: ${(p) =>
+    p.active ? colors.accent.lightest : colors.neutrals.darkest};
 
-  color: ${p => rgba("white", p.active ? 0.85 : 0.25)};
+  color: ${(p) => rgba("white", p.active ? 0.85 : 0.25)};
+  color: ${(p) =>
+    p.active ? colors.white : colors.neutrals.lighter};
 `;
 
 export const Content = styled.div`
