@@ -389,6 +389,7 @@ export const BackgroundFigure = styled.div`
     
   `}
   z-index: -1;
+  background-color: ${colors.accent.ochrePale};
   background-color: ${colors.accent.lightest};
   border-top-right-radius: 130%;
   border-bottom-right-radius: 150%;
@@ -424,9 +425,11 @@ export const Button = styled.div`
 
   border: none;
   background: transparent;
-  ${'' /* background-color: red;
+  ${
+    "" /* background-color: red;
   background-color: ${(p) => p.open && "blue"} !important;
-  border-radius: 0 !important; */}
+  border-radius: 0 !important; */
+  }
   transition: all 1s;
 
   text-rendering: optimizeSpeed;
@@ -451,6 +454,7 @@ export const Button = styled.div`
     & ${BackgroundFigure} {
       ${"" /* animation: ${bubbleGum} 2.5s infinite linear; */}
       animation: ${bubbleGumScale} 2.5s infinite linear;
+      background-color: ${colors.secondary.darkest};
     }
   }
 

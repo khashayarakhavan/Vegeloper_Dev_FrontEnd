@@ -38,13 +38,18 @@ export const ScrollDownCTA = styled(ScrollLink)`
 `;
 export const ArrowContainer = styled(ScrollLink)`
   margin-top: -2rem;
-
+  cursor: pointer;
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   ${"" /* height: 150px; */}
+  :hover > svg path {
+    stroke: ${colors.accent.ochreFire};
+    stroke: ${colors.accent.darkest};
+    stroke: ${colors.accent.lightest};
+  }
 `;
 
 export const Arrow = styled.svg`
@@ -82,7 +87,10 @@ export const Arrow = styled.svg`
   
   path {
     stroke: #ffffff;
+   
     stroke: ${colors.accent.lightest};
+    stroke: ${colors.accent.ochreFire};
+    transition: stroke 0.45s;
     fill: transparent;
 
     stroke-width: 4px;
