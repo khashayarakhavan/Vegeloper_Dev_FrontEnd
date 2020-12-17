@@ -20,11 +20,13 @@ export const Card = styled.div`
   right: 30rem;
   width: 300px;
   height: 240px;
-  background: blue;
+  background: lightblue;
+  border-radius: 2vw;
 `;
 
 export const Row = styled.div`
   position: relative;
+  margin-top: 5rem;
   display: flex;
 `;
 
@@ -67,6 +69,8 @@ export const Content = styled.div`
 `;
 
 export const Tab = styled.div`
-font-size: 14px;
+font-size: 24px;
+font-weight: 800;
+padding: 2rem;
   width: 300px;
 `;

@@ -28,10 +28,26 @@ export const TabbedCard = () => {
 
   return (
     <Card>
-      <Tabs active={active} setActive={setActive}/>
+      <Tabs active={active} setActive={setActive} />
       <Content active={active}>
         {tabs.map((tab) => (
-          <Tab>{tab}</Tab>
+          <Tab>
+            {tab}
+            <div
+              style={{
+                borderRadius: "50%",
+                overflow: "hidden",
+                height: "50px",
+                width: "50px",
+              }}
+            >
+              <img
+                src="https://www.gannett-cdn.com/presto/2020/03/13/USAT/1c2efdbb-5801-4f59-860b-ff0874040fb6-VPC_CORONAVIRUS_CLOSES_DISNEY_PARKS_DESK_THUMB.jpg?crop=1911,1075,x2,y2&width=1911&height=1075&format=pjpg&auto=webp"
+                width="50px"
+                height="50px"
+              />
+            </div>
+          </Tab>
         ))}
       </Content>
     </Card>
