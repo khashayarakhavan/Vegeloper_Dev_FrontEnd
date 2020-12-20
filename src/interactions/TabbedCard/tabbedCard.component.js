@@ -1,10 +1,8 @@
 //Basics
 import React, { useState } from "react";
-// import LazyLoad from 'react-lazy-load';
-// import reduxSaga from "redux-saga";
-// import json from './lazyCard.data.json';
-import { Row, Underline, Button, Content, Card, Tab } from "./tabbedCard.styles";
+
 //Styles
+import { Row, Underline, Button, Content, Card, Tab } from "./tabbedCard.styles";
 // import {Row, Avatar, Name, Card, List} from './tabbedCard.styles';
 
 

@@ -35,16 +35,12 @@ export const Underline = styled.div`
   left: 0;
   bottom: 0;
   width: 33.333%;
-  ${'' /* width: 33%; */}
+  ${"" /* width: 33%; */}
   height: 6px;
   background: #6b44a9;
   background: ${colors.neutrals.lightest};
-  transform: translateX(${p => 
-  p.active === 0
-    ? 0
-    : p.active * 100
-  }%
-  );
+  //roll underline based on active index
+  transform: translateX(${(p) => (p.active === 0 ? 0 : p.active * 100)}%);
   ${transition};
 `;
 
@@ -66,6 +62,7 @@ export const Content = styled.div`
   content: "";
   height: 100%;
   display: flex;
+  //roll content based on active index 
   transform: translateX(
     ${p => p.active === 0 
       ? 0
